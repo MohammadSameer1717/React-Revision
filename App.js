@@ -1,18 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child", key: "child1" }, [
-    React.createElement("h1", { key: "h1-1" }, "I'm an h1 tag"),
-    React.createElement("h2", { key: "h2-1" }, "I'm an h2 tag"),
-  ]),
-  React.createElement("div", { id: "child2", key: "child2" }, [
-    React.createElement("h1", { key: "h1-2" }, "I'm an h1 tag"),
-    React.createElement("h2", { key: "h2-2" }, "I'm an h2 tag"),
-  ]),
-]);
+// React.createElement => ReactElement - Js object => HTMLElement(render)
+const heading = React.createElement(
+  "h1",
+   { id: "heading" },
+    "Namaste React"
+  );
 
-console.log(parent); // object
+  console.log(heading);
+  // JSX (transpiled before it reach the JS) - PARCEL -Babel
+
+// JSX => React.createElement-js object => HTMLElement(render)
+const jsxHeading = <h1 id="heading">Namaste React Using in JSX </h1>;
+console.log(jsxHeading); 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(jsxHeading);
