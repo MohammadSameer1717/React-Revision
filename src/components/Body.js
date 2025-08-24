@@ -1,14 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import Header from "./src/components/Header.js";
-import Body from "./src/components/Body.js";
-
-
-// Header Component
- 
-
-//  RestaurnantCard.js
-
+import RestaurantCard from "./RestaurantCard";
 
 const resList = [
   {
@@ -138,20 +128,18 @@ const resList = [
     deliveryTime: "21 minutes",
   },
 ];
- 
-// Body Component
- 
 
-// App Layout Component
-const AppLayout = () => {
+const Body = () => {
   return (
-    <div className="app">
-      <Header />
-      <Body />
+    <div className="body">
+      <div className="search">Search</div>
+      <div className="res-container">
+        {resList.map((restaurant) => (
+          <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+        ))}
+      </div>
     </div>
   );
 };
 
-// Render
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+export default Body;
